@@ -1,3 +1,22 @@
 body {
     margin: 0;
 }
+
+#content-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+#grid {
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+    display: grid;
+}
+
+.grid-square {
+    
+    border: 1px solid red;
+}
