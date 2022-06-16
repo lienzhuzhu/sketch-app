@@ -9,17 +9,23 @@
 </head>
 <body>
     
-    <div id="content-container">
+    <div class="container" id="content-container">
         <div id="grid">
 
         </div>
-
-        <button id="black-button">Draw</button>
-        <button id="erase-button">Erase</button>
     </div>
 
+    <div class="container" id="input-container">
+        <button id="pen-button" data-mode="pen">Pen</button>
+        <button id="erase-button" data-mode="erase">Erase</button>
+        <button id="rainbow-button" data-mode="rainbow">Rainbow</button>
 
-    
+        <button id="clear-button">Clear</button>
+        <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="16" class="slider" id="slider">
+        </div>
+    </div>
+
     <script src="script.js"></script>
 
 </body>

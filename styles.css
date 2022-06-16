@@ -1,8 +1,9 @@
 body {
     margin: 0;
+    background-color: rgb(238, 210, 210);
 }
 
-#content-container {
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,7 +13,11 @@ body {
 #grid {
     width: 500px;
     height: 500px;
-    border: 1px solid black;
     display: grid;
+    background-color: white;
+}
+
+.grid-square {
+    border: 1px solid black;
 }
 
