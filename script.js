@@ -5,6 +5,7 @@ const grid = document.getElementById("grid");
 const slider = document.getElementById("slider");
 const clearBtn = document.getElementById("clear-button");
 const gridBtn = document.getElementById("grid-switch");
+const sizeDisplay = document.getElementById("size-display");
 const hexValues = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
 
 let mode = "erase";
@@ -15,6 +16,8 @@ let draw = false;
 function setSize() {
     grid.innerHTML = '';
     size = slider.value;
+    sizeDisplay.innerText = size + " x " + size;
+
     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
@@ -81,7 +84,7 @@ function colorSquare() {
     }
 }
 
-slider.addEventListener("change", setSize);
+slider.addEventListener("input", setSize);
 document.addEventListener("DOMContentLoaded", setSize);
 
 grid.addEventListener("click", drawSwitch);

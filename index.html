@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="/favicon.png"/>
     <title>Etch-A-Sketch</title>
 </head>
 <body>
@@ -16,17 +17,24 @@
     </div>
 
     <div class="container" id="input-container">
-        <button class="mode-button" id="pen-button" data-mode="pen">Pen</button>
-        <button class="mode-button" id="rainbow-button" data-mode="rainbow">Rainbow</button>
-        <button class="mode-button" id="erase-button" data-mode="erase">Erase</button>
+        <div id="mode-buttons-container">
+            <button class="mode-button" id="pen-button" data-mode="pen">Pen</button>
+            <button class="mode-button" id="rainbow-button" data-mode="rainbow">Rainbow</button>
+            <button class="mode-button" id="erase-button" data-mode="erase">Erase</button>
+        </div>
 
-        <button id="clear-button">Clear</button>
-
-        <div class="slidecontainer">
+        <div class="slider-container">
+            <p id="size-display"></p>
             <input type="range" min="1" max="100" value="50" class="slider" id="slider">
         </div>
         
-        <button id="grid-switch">Turn Grid On</button>
+        <div id="clear-button-container">
+            <button id="clear-button">Clear</button>
+        </div>
+
+        <div id="grid-switch-container">
+            <button id="grid-switch">Turn Grid On</button>
+        </div>
     </div>
 
     <script src="script.js"></script>

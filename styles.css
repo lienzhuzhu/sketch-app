@@ -3,11 +3,41 @@ body {
     background-color: rgb(238, 210, 210);
 }
 
+p {
+    font-family: monospace;
+    font-size: 1.5vw;
+    text-align: center;
+}
+
+button {
+    font-family: monospace;
+}
+
 .container {
+    margin: 2vw 0;
+}
+
+#content-container {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 5%;
+}
+
+#input-container {
+    display: grid;
+    place-items: center;
+}
+
+#mode-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    margin-bottom: 1vw;
+}
+
+#clear-button-container {
+    margin: 1vw 0;
 }
 
 #grid {
@@ -15,6 +45,13 @@ body {
     height: 500px;
     display: grid;
     background-color: white;
+}
+
+@media (max-width: 500px) {
+    #grid {
+        width: 80vw;
+        height: 80vw;
+    }
 }
 
 
