@@ -3,14 +3,14 @@
 
 const grid = document.getElementById("grid");
 const slider = document.getElementById("slider");
-const penBtn = document.getElementById("pen-button")
-const eraseBtn = document.getElementById("erase-button");
 const clearBtn = document.getElementById("clear-button");
+const gridBtn = document.getElementById("grid-switch");
+const hexValues = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
 
 let mode = "erase";
 let color = "black";
+let gridBorder = false;
 let draw = false;
-let size = 16;
 
 function setSize() {
     grid.innerHTML = '';
@@ -28,6 +28,28 @@ function setSize() {
         let pixel = document.getElementsByClassName("grid-square")[i];
         pixel.addEventListener("mouseover", colorSquare);
     }
+
+    setGridBorder();
+}
+
+function gridSwitch() {
+    gridBorder = !gridBorder;
+    setGridBorder();
+}
+
+function setGridBorder() {
+    let gridArr = document.getElementsByClassName("grid-square");
+    if (gridBorder) {
+        for (let i = 0; i < gridArr.length; i++) {
+            gridArr[i].style.border = "1px solid black";
+        }
+        gridBtn.innerText = "Turn Grid Off";
+    } else {
+        for (let i = 0; i < gridArr.length; i++) {
+            gridArr[i].style.border = "none";
+        }
+        gridBtn.innerText = "Turn Grid On";
+    }
 }
 
 function drawSwitch() {
@@ -38,10 +60,21 @@ function setMode() {
     mode = this.getAttribute("data-mode");
 }
 
+function getRandomColor() {
+    let hex = '#';
+    for(let i = 0; i < 6; i++) {
+        const index = Math.floor(Math.random() * hexValues.length)
+        hex += hexValues[index];
+    }
+    return hex;
+}
+
 function colorSquare() {
     if (draw) {
         if (mode == "pen") {
             this.style.backgroundColor = color;
+        } else if (mode == "rainbow") {
+            this.style.backgroundColor = getRandomColor();
         } else if (mode == "erase") {
             this.style.backgroundColor = "white";
         }
@@ -52,8 +85,9 @@ slider.addEventListener("change", setSize);
 document.addEventListener("DOMContentLoaded", setSize);
 
 grid.addEventListener("click", drawSwitch);
-
-penBtn.addEventListener("click", setMode);
-eraseBtn.addEventListener("click", setMode);
-
 clearBtn.addEventListener("click", setSize);
+gridBtn.addEventListener("click", gridSwitch);
+
+for (let i = 0; i < document.getElementsByClassName("mode-button").length; i++) {
+    document.getElementsByClassName("mode-button")[i].addEventListener("click", setMode);
+}

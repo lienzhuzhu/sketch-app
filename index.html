@@ -16,14 +16,17 @@
     </div>
 
     <div class="container" id="input-container">
-        <button id="pen-button" data-mode="pen">Pen</button>
-        <button id="erase-button" data-mode="erase">Erase</button>
-        <button id="rainbow-button" data-mode="rainbow">Rainbow</button>
+        <button class="mode-button" id="pen-button" data-mode="pen">Pen</button>
+        <button class="mode-button" id="rainbow-button" data-mode="rainbow">Rainbow</button>
+        <button class="mode-button" id="erase-button" data-mode="erase">Erase</button>
 
         <button id="clear-button">Clear</button>
+
         <div class="slidecontainer">
-            <input type="range" min="1" max="100" value="16" class="slider" id="slider">
+            <input type="range" min="1" max="100" value="50" class="slider" id="slider">
         </div>
+        
+        <button id="grid-switch">Turn Grid On</button>
     </div>
 
     <script src="script.js"></script>
