@@ -3,19 +3,24 @@
 
 const grid = document.getElementById("grid");
 const slider = document.getElementById("slider");
+const colorPicker = document.getElementById("color-selector");
 const clearBtn = document.getElementById("clear-button");
 const gridBtn = document.getElementById("grid-switch");
 const sizeDisplay = document.getElementById("size-display");
 const hexValues = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
 
-let mode = "erase";
 let color = "black";
+let mode = "erase";
 let gridBorder = false;
 let draw = false;
 
+function setColor() {
+    color = colorPicker.value;
+}
+
 function setSize() {
     grid.innerHTML = '';
-    size = slider.value;
+    let size = slider.value;
     sizeDisplay.innerText = size + " x " + size;
 
     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -84,12 +89,15 @@ function colorSquare() {
     }
 }
 
+colorPicker.onchange = () => setColor();
+document.addEventListener("DOMContentLoaded", setColor);
+
 slider.addEventListener("input", setSize);
 document.addEventListener("DOMContentLoaded", setSize);
 
-grid.addEventListener("click", drawSwitch);
-clearBtn.addEventListener("click", setSize);
-gridBtn.addEventListener("click", gridSwitch);
+grid.onclick = () => drawSwitch();
+clearBtn.onclick = () => setSize();
+gridBtn.onclick = () => gridSwitch();
 
 for (let i = 0; i < document.getElementsByClassName("mode-button").length; i++) {
     document.getElementsByClassName("mode-button")[i].addEventListener("click", setMode);
