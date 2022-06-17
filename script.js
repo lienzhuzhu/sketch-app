@@ -7,6 +7,7 @@ const colorPicker = document.getElementById("color-selector");
 const clearBtn = document.getElementById("clear-button");
 const gridBtn = document.getElementById("grid-switch");
 const sizeDisplay = document.getElementById("size-display");
+const modeBtnArr = document.getElementsByClassName("mode-button");
 const hexValues = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
 
 let color = "black";
@@ -52,11 +53,13 @@ function setGridBorder() {
             gridArr[i].style.border = "1px solid black";
         }
         gridBtn.innerText = "Turn Grid Off";
+        gridBtn.classList.add("selected");
     } else {
         for (let i = 0; i < gridArr.length; i++) {
             gridArr[i].style.border = "none";
         }
         gridBtn.innerText = "Turn Grid On";
+        gridBtn.classList.remove("selected");
     }
 }
 
@@ -65,7 +68,19 @@ function drawSwitch() {
 }
 
 function setMode() {
+    let oldMode = mode;
     mode = this.getAttribute("data-mode");
+
+    for (let i = 0; i < modeBtnArr.length; i++) {
+        let item = modeBtnArr[i];
+        if (item.getAttribute("data-mode") !== mode) {
+            item.classList.remove("selected");
+        } else {
+            if (item.getAttribute("data-mode") !== oldMode) {
+                item.classList.add("selected");
+            }
+        }
+    }
 }
 
 function getRandomColor() {
@@ -99,6 +114,6 @@ grid.onclick = () => drawSwitch();
 clearBtn.onclick = () => setSize();
 gridBtn.onclick = () => gridSwitch();
 
-for (let i = 0; i < document.getElementsByClassName("mode-button").length; i++) {
-    document.getElementsByClassName("mode-button")[i].addEventListener("click", setMode);
+for (let i = 0; i < modeBtnArr.length; i++) {
+    modeBtnArr[i].addEventListener("click", setMode);
 }
