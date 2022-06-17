@@ -3,12 +3,7 @@ body {
     background-color: rgb(238, 210, 210);
 }
 
-@media (max-width: 500px) {
-    #grid {
-        width: 80vw;
-        height: 80vw;
-    }
-}
+
 
 p {
     font-family: monospace;
@@ -66,6 +61,13 @@ button {
     background-color: red;
     border-radius: 50%;
 }
+
+@media (max-width: 500px) {
+    #grid {
+        width: 80vw;
+        height: 80vw;
+    }
+}   
 
 
 
