@@ -86,12 +86,6 @@ button {
     border-radius: 5px;
 }
 
-button,
-#color-selector {
-    flex-shrink: 1;
-    min-width: 0;
-}
-
 @media (max-width: 500px) {
     #grid {
         width: 80vw;
