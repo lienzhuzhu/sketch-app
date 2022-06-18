@@ -51,9 +51,11 @@ button {
 }
 
 #input-container {
-    display: grid;
+    /* display: grid;
     grid-template-columns: 1fr 1fr;
-    place-items: center;
+    place-items: center; */
+    display: flex;
+    flex-direction: row;
     width: 500px;
     height: 200px;
     margin: auto;
@@ -71,7 +73,7 @@ button {
 
 #grid {
     width: 500px;
-    height: 500px;
+    height: 500px; 
     display: grid;
     background-color: var(--secondary-light);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -101,6 +103,10 @@ button {
     #color-selector {
         width: 100px;
         height: 40px;
+    } 
+
+    #grid-switch {
+        font-size: 10px;
     }
     
 }   
