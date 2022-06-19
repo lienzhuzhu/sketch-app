@@ -33,9 +33,6 @@ button {
     color: var(--primary-dark);
     border: 1px solid var(--primary-dark);
     outline: none;
-    border-radius: 5px;
-    width: 150px;
-    height: 50px;
 }
 
 .selected {
@@ -51,9 +48,6 @@ button {
 }
 
 #input-container {
-    /* display: grid;
-    grid-template-columns: 1fr 1fr;
-    place-items: center; */
     display: flex;
     flex-direction: row;
     width: 500px;
@@ -79,10 +73,8 @@ button {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#color-selector {
-    border: transparent;
-    padding: 0;
-    outline: transparent;
+button, 
+#color-label {
     width: 150px;
     height: 50px;
     border-radius: 5px;
@@ -100,11 +92,22 @@ button {
     }
 
     button, 
-    #color-selector {
+    #color-label {
         width: 90%;
         height: 40px;
     } 
-}   
+}  
 
+@media (max-width: 250px) {
+    #grid-switch {
+        font-size: 5px;
+    }
+}
 
+#color-selector {
+    visibility: hidden;
+}
 
+#color-label {
+    background-color: var(--primary-dark);
+}
