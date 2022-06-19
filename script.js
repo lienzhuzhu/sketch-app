@@ -10,13 +10,14 @@ const sizeDisplay = document.getElementById("size-display");
 const modeBtnArr = document.getElementsByClassName("mode-button");
 const hexValues = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
 
-let color = "black";
+let color = "";
 let mode = "erase";
 let gridBorder = false;
 let draw = false;
 
 function setColor() {
     color = colorPicker.value;
+    colorPicker.parentElement.style.backgroundColor = color;
 }
 
 function setSize() {
@@ -104,7 +105,7 @@ function colorSquare() {
     }
 }
 
-colorPicker.onchange = () => setColor();
+colorPicker.oninput = () => setColor();
 document.addEventListener("DOMContentLoaded", setColor);
 
 slider.addEventListener("input", setSize);
@@ -117,3 +118,4 @@ gridBtn.onclick = () => gridSwitch();
 for (let i = 0; i < modeBtnArr.length; i++) {
     modeBtnArr[i].addEventListener("click", setMode);
 }
+
